@@ -1,0 +1,131 @@
+'use client'
+import Link from 'next/link'
+import { useState } from 'react'
+
+export default function LoginForm() {
+  // Add this new state
+  const [userType, setUserType] = useState('labour') // default value is 'labour'
+  
+  const [formData, setFormData] = useState({
+    aadhar: '',
+    mobile: ''
+  })
+  const [errors, setErrors] = useState({
+    aadhar: '',
+    mobile: ''
+  })
+
+  const validateForm = () => {
+    let isValid = true
+    const newErrors = { aadhar: '', mobile: '' }
+
+    // Validate Aadhar Number
+    if (!/^\d{12}$/.test(formData.aadhar)) {
+      newErrors.aadhar = 'Aadhar number must be exactly 12 digits'
+      isValid = false
+    }
+
+    // Validate Mobile Number
+    if (!/^\d{10}$/.test(formData.mobile)) {
+      newErrors.mobile = 'Mobile number must be exactly 10 digits'
+      isValid = false
+    }
+
+    setErrors(newErrors)
+    return isValid
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (validateForm()) {
+      // Handle form submission here
+      console.log('Form submitted:', formData)
+    }
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    // Only allow numeric input
+    if (value === '' || /^\d+$/.test(value)) {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }))
+    }
+  }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+        <nav className="flex justify-center space-x-4 mb-6">
+          <button
+            onClick={() => setUserType('labour')}
+            className={`px-4 py-2 rounded-lg ${
+              userType === 'labour'
+                ? 'bg-blue-500 text-white'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            Login as Labour
+          </button>
+          <button
+            onClick={() => setUserType('client')}
+            className={`px-4 py-2 rounded-lg ${
+              userType === 'client'
+                ? 'bg-blue-500 text-white'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            Login as Client
+          </button>
+        </nav>
+        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Aadhar Number
+            </label>
+            <input
+              type="text"
+              name="aadhar"
+              value={formData.aadhar}
+              onChange={handleChange}
+              maxLength={12}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter 12 digit Aadhar number"
+            />
+            {errors.aadhar && <p className="text-red-500 text-xs mt-1">{errors.aadhar}</p>}
+          </div>
+
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Mobile Number
+            </label>
+            <input
+              type="text"
+              name="mobile"
+              value={formData.mobile}
+              onChange={handleChange}
+              maxLength={10}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter 10 digit mobile number"
+            />
+            {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>}
+          </div>
+            <div className='m-3'>
+                don't have an account?{' '}
+                <Link href="/register" className="text-blue-500 hover:underline">
+                    Signup
+                </Link>
+            </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
