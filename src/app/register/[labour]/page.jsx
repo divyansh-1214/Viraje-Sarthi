@@ -8,20 +8,21 @@ export default function LabourRegistration() {
   const searchParams = useSearchParams()
   const aadharId = searchParams.get('aadhar')
   
+  // Update initial state
   const [formData, setFormData] = useState({
     id: aadharId,
     name: '',
     age: '',
-    skill: [],
+    skill: '',
     experience: '',
-    min_salary: '',
-    max_salary: '',
+    address: '',
     location: ''
   })
-
-  const [gender, setGender] = useState('male') // Added gender state but not included in formData
-  const [newSkill, setNewSkill] = useState('')
-
+  
+  // Remove newSkill state and related handlers
+  const [gender, setGender] = useState('male')
+  
+  // Remove these handlers as they're no longer needed
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -29,6 +30,8 @@ export default function LabourRegistration() {
       [name]: value
     }))
   }
+  
+  // Remove handleSkillAdd and removeSkill functions
 
   const handleSkillAdd = () => {
     if (newSkill && !formData.skill.includes(newSkill)) {
@@ -148,87 +151,39 @@ export default function LabourRegistration() {
 
           <div>
             <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
-              Skills
+              Skills (comma separated)
             </label>
-            <div className="flex gap-2 mb-2">
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="text"
-                value={newSkill}
-                onChange={(e) => setNewSkill(e.target.value)}
-                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
-                placeholder="Add a skill"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="button"
-                onClick={handleSkillAdd}
-                className="px-4 py-2 rounded-lg text-black font-semibold"
-                style={{ backgroundColor: 'var(--primary-yellow-400)' }}
-              >
-                Add
-              </motion.button>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {formData.skill.map((skill, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-gray-100 px-3 py-1 rounded-full flex items-center gap-2"
-                >
-                  {skill}
-                  <button
-                    type="button"
-                    onClick={() => removeSkill(skill)}
-                    className="text-red-500 hover:text-red-700"
-                  >
-                    ×
-                  </button>
-                </motion.span>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
-                Minimum Salary
-              </label>
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="number"
-                name="min_salary"
-                value={formData.min_salary}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
-                Maximum Salary
-              </label>
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="number"
-                name="max_salary"
-                value={formData.max_salary}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
-                required
-              />
-            </div>
+            <motion.input
+              whileFocus={{ scale: 1.02 }}
+              type="text"
+              name="skill"
+              value={formData.skill}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+              style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
+              placeholder="e.g. Painting, Carpentry, Electrical Work"
+              required
+            />
           </div>
 
           <div>
             <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
-              Location
+              your current address
+            </label>
+            <motion.input
+              whileFocus={{ scale: 1.02 }}
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+              style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+              Enter your Preferred Location
             </label>
             <motion.input
               whileFocus={{ scale: 1.02 }}

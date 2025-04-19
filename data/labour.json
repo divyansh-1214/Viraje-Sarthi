@@ -4,300 +4,180 @@
       "id": "123456789012",
       "name": "Rahul Kumar",
       "age": 25,
-      "skill": [
-        "Python",
-        "JavaScript",
-        "React",
-        "Node.js"
-      ],
+      "skill": "Painting, Carpentry",
       "experience": 3,
-      "min_salary": 25000,
-      "max_salary": 35000,
+      "address": "90/2 kusi road Lucknow",
       "location": "Mumbai"
     },
     {
       "id": "234567890123",
       "name": "Priya Patel",
       "age": 28,
-      "skill": [
-        "Java",
-        "Spring",
-        "MySQL",
-        "Docker"
-      ],
+      "skill": "Electrical Work, Interior Work, Renovation",
       "experience": 5,
-      "min_salary": 35000,
-      "max_salary": 45000,
+      "address": "45/B Shanti Nagar, Koramangala",
       "location": "Bangalore"
     },
     {
       "id": "345678901234",
       "name": "Amit Singh",
       "age": 30,
-      "skill": [
-        "Angular",
-        "TypeScript",
-        "MongoDB",
-        "AWS"
-      ],
+      "skill": "Plumbing, Construction, Masonry",
       "experience": 7,
-      "min_salary": 45000,
-      "max_salary": 60000,
+      "address": "123 Rajouri Garden, West Delhi",
       "location": "Delhi"
     },
     {
       "id": "456789012345",
       "name": "Neha Sharma",
       "age": 24,
-      "skill": [
-        "PHP",
-        "Laravel",
-        "Vue.js",
-        "MySQL"
-      ],
+      "skill": "Interior Work, Painting, Renovation",
       "experience": 2,
-      "min_salary": 20000,
-      "max_salary": 30000,
+      "address": "567 MG Road, Kothrud",
       "location": "Pune"
     },
     {
       "id": "567890123456",
       "name": "Arjun Reddy",
       "age": 32,
-      "skill": [
-        "Android",
-        "Kotlin",
-        "Firebase",
-        "Git"
-      ],
+      "skill": "Construction, Masonry, Electrical Work",
       "experience": 8,
-      "min_salary": 50000,
-      "max_salary": 70000,
+      "address": "89/A Jubilee Hills, Banjara Hills",
       "location": "Hyderabad"
     },
     {
       "id": "678901234567",
       "name": "Sneha Gupta",
       "age": 27,
-      "skill": [
-        "iOS",
-        "Swift",
-        "React Native",
-        "Firebase"
-      ],
+      "skill": "Interior Work, Painting, Carpentry",
       "experience": 4,
-      "min_salary": 30000,
-      "max_salary": 45000,
+      "address": "34 Anna Nagar, T Nagar",
       "location": "Chennai"
     },
     {
       "id": "789012345678",
       "name": "Vikram Malhotra",
       "age": 29,
-      "skill": [
-        "Ruby",
-        "Rails",
-        "PostgreSQL",
-        "Redis"
-      ],
+      "skill": "Plumbing, Electrical Work, Construction",
       "experience": 6,
-      "min_salary": 40000,
-      "max_salary": 55000,
+      "address": "56 Salt Lake City, Sector 5",
       "location": "Kolkata"
     },
     {
       "id": "890123456789",
       "name": "Ananya Das",
       "age": 26,
-      "skill": [
-        "DevOps",
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ],
+      "skill": "Renovation, Interior Work, Painting",
       "experience": 4,
-      "min_salary": 35000,
-      "max_salary": 50000,
+      "address": "78/B Bandra West, Mumbai",
       "location": "Mumbai"
     },
     {
       "id": "901234567890",
       "name": "Karthik Rajan",
       "age": 31,
-      "skill": [
-        "Data Science",
-        "Python",
-        "R",
-        "TensorFlow"
-      ],
+      "skill": "Masonry, Construction, Plumbing",
       "experience": 7,
-      "min_salary": 45000,
-      "max_salary": 65000,
+      "address": "234 Indiranagar, HAL 2nd Stage",
       "location": "Bangalore"
     },
     {
       "id": "012345678901",
       "name": "Zara Sheikh",
       "age": 28,
-      "skill": [
-        "UI/UX",
-        "Figma",
-        "Adobe XD",
-        "HTML/CSS"
-      ],
+      "skill": "Interior Work, Renovation, Painting",
       "experience": 5,
-      "min_salary": 30000,
-      "max_salary": 45000,
+      "address": "45 Hauz Khas, South Delhi",
       "location": "Delhi"
     },
     {
       "id": "123789456012",
       "name": "Rajesh Verma",
       "age": 33,
-      "skill": [
-        "C++",
-        "Python",
-        "OpenCV",
-        "TensorFlow"
-      ],
+      "skill": "Electrical Work, Plumbing, Construction",
       "experience": 9,
-      "min_salary": 55000,
-      "max_salary": 75000,
+      "address": "89 Aundh, Baner Road",
       "location": "Pune"
     },
     {
       "id": "234890567123",
       "name": "Meera Iyer",
       "age": 25,
-      "skill": [
-        "Flutter",
-        "Dart",
-        "Firebase",
-        "Git"
-      ],
+      "skill": "Painting, Interior Work, Renovation",
       "experience": 3,
-      "min_salary": 25000,
-      "max_salary": 35000,
+      "address": "67 Velachery, Adyar",
       "location": "Chennai"
     },
     {
       "id": "345901678234",
       "name": "Aditya Shah",
       "age": 30,
-      "skill": [
-        "Blockchain",
-        "Solidity",
-        "JavaScript",
-        "Web3"
-      ],
+      "skill": "Construction, Masonry, Carpentry",
       "experience": 6,
-      "min_salary": 45000,
-      "max_salary": 65000,
+      "address": "12 Powai, Hiranandani Gardens",
       "location": "Mumbai"
     },
     {
       "id": "456012789345",
       "name": "Divya Kapoor",
       "age": 27,
-      "skill": [
-        "MERN Stack",
-        "TypeScript",
-        "AWS",
-        "Redux"
-      ],
+      "skill": "Interior Work, Painting, Renovation",
       "experience": 4,
-      "min_salary": 35000,
-      "max_salary": 50000,
+      "address": "56 Whitefield, ITPL Road",
       "location": "Bangalore"
     },
     {
       "id": "567123890456",
       "name": "Sanjay Mehta",
       "age": 34,
-      "skill": [
-        "Java",
-        "Spring Boot",
-        "Microservices",
-        "Kafka"
-      ],
+      "skill": "Electrical Work, Plumbing, Construction",
       "experience": 10,
-      "min_salary": 60000,
-      "max_salary": 85000,
+      "address": "23 Gachibowli, Financial District",
       "location": "Hyderabad"
     },
     {
       "id": "678234901567",
       "name": "Riya Chatterjee",
       "age": 26,
-      "skill": [
-        "QA",
-        "Selenium",
-        "Cypress",
-        "TestNG"
-      ],
+      "skill": "Painting, Interior Work, Renovation",
       "experience": 3,
-      "min_salary": 25000,
-      "max_salary": 35000,
+      "address": "90 Park Street, Ballygunge",
       "location": "Kolkata"
     },
     {
       "id": "789345012678",
       "name": "Kabir Khan",
       "age": 29,
-      "skill": [
-        "Unity3D",
-        "C#",
-        "Game Development",
-        "AR/VR"
-      ],
+      "skill": "Masonry, Construction, Plumbing",
       "experience": 5,
-      "min_salary": 40000,
-      "max_salary": 55000,
+      "address": "34 Connaught Place, Central Delhi",
       "location": "Delhi"
     },
     {
       "id": "890456123789",
       "name": "Lakshmi Menon",
       "age": 28,
-      "skill": [
-        "Data Engineering",
-        "Python",
-        "Spark",
-        "Hadoop"
-      ],
+      "skill": "Interior Work, Renovation, Carpentry",
       "experience": 5,
-      "min_salary": 40000,
-      "max_salary": 60000,
+      "address": "78 Mylapore, Alwarpet",
       "location": "Chennai"
     },
     {
       "id": "901567234890",
       "name": "Aryan Desai",
       "age": 31,
-      "skill": [
-        "Cloud Architecture",
-        "AWS",
-        "Azure",
-        "GCP"
-      ],
+      "skill": "Construction, Electrical Work, Plumbing",
       "experience": 8,
-      "min_salary": 55000,
-      "max_salary": 80000,
+      "address": "45 Kalyani Nagar, Viman Nagar",
       "location": "Pune"
     },
     {
       "id": "012678345901",
       "name": "Nisha Rawat",
       "age": 27,
-      "skill": [
-        "Full Stack",
-        "Angular",
-        "Node.js",
-        "MongoDB"
-      ],
+      "skill": "Interior Work, Painting, Renovation",
       "experience": 4,
-      "min_salary": 35000,
-      "max_salary": 50000,
+      "address": "67 Andheri East, MIDC",
       "location": "Mumbai"
     }
   ]
