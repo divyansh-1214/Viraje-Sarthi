@@ -179,15 +179,6 @@
       "experience": 4,
       "address": "67 Andheri East, MIDC",
       "location": "Mumbai"
-    },
-    {
-      "id": "123456789012",
-      "name": "Divyansh",
-      "age": "12",
-      "skill": "kbsbcaj,ajsbjb",
-      "experience": "12",
-      "address": "122",
-      "location": "124334"
     }
   ]
 }
