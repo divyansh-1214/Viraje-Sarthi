@@ -5,7 +5,7 @@ import { FaTools, FaSearch, FaHandshake, FaStar } from 'react-icons/fa';
 import { MdElectricBolt, MdPlumbing, MdBrush } from 'react-icons/md';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import logo from "../../components/logo.jpg"
 export default function Home() {
   const services = [
     { icon: <MdElectricBolt className="text-4xl" />, title: 'Electricians', description: 'Professional electrical services for your home and business' },
@@ -32,7 +32,7 @@ export default function Home() {
           >
             <div className="flex justify-center mb-8">
               <Image
-                src="/logo.jpg"
+                src={logo}
                 alt="Viraj Saarthi Services"
                 width={200}
                 height={200}

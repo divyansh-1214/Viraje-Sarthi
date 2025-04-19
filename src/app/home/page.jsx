@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-
+import img from "../../components/image.png"
 export default function Home() {
     return (
         <main className="min-h-screen" style={{ backgroundColor: 'var(--primary-yellow-50)' }}>
@@ -113,7 +113,7 @@ export default function Home() {
                             transition={{ duration: 0.3 }}
                         >
                             <Image
-                                src="/worker.png"
+                                src={img}
                                 alt="Professional Worker"
                                 width={500}
                                 height={400}

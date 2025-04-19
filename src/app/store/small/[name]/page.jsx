@@ -2,7 +2,7 @@
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import api from '../../../../api/postLabour'
-
+import Link from 'next/link'
 export default function Page() {
     const params = useParams()
     const skillType = params.name
@@ -36,13 +36,15 @@ export default function Page() {
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayLabour.map((labour) => (
-                        <div key={labour.id} className="bg-white rounded-lg shadow-md p-6">
-                            <h2 className="text-xl font-semibold mb-2">{labour.name}</h2>
-                            <p className="text-gray-600 mb-2">Experience: {labour.experience} years</p>
-                            <p className="text-gray-600 mb-2">Skills: {labour.skill}</p>
-                            <p className="text-gray-600 mb-2">Location: {labour.location}</p>
-                            <p className="text-gray-600">Address: {labour.address}</p>
-                        </div>
+                        <Link key={labour.id} href={`/profile/${labour.id}`}>
+                            <div className="bg-white rounded-lg shadow-md p-6">
+                                <h2 className="text-xl font-semibold mb-2">{labour.name}</h2>
+                                <p className="text-gray-600 mb-2">Experience: {labour.experience} years</p>
+                                <p className="text-gray-600 mb-2">Skills: {labour.skill}</p>
+                                <p className="text-gray-600 mb-2">Location: {labour.location}</p>
+                                <p className="text-gray-600">Address: {labour.address}</p>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>
