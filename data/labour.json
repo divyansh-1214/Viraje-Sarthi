@@ -1,0 +1,304 @@
+{
+  "labour": [
+    {
+      "id": "123456789012",
+      "name": "Rahul Kumar",
+      "age": 25,
+      "skill": [
+        "Python",
+        "JavaScript",
+        "React",
+        "Node.js"
+      ],
+      "experience": 3,
+      "min_salary": 25000,
+      "max_salary": 35000,
+      "location": "Mumbai"
+    },
+    {
+      "id": "234567890123",
+      "name": "Priya Patel",
+      "age": 28,
+      "skill": [
+        "Java",
+        "Spring",
+        "MySQL",
+        "Docker"
+      ],
+      "experience": 5,
+      "min_salary": 35000,
+      "max_salary": 45000,
+      "location": "Bangalore"
+    },
+    {
+      "id": "345678901234",
+      "name": "Amit Singh",
+      "age": 30,
+      "skill": [
+        "Angular",
+        "TypeScript",
+        "MongoDB",
+        "AWS"
+      ],
+      "experience": 7,
+      "min_salary": 45000,
+      "max_salary": 60000,
+      "location": "Delhi"
+    },
+    {
+      "id": "456789012345",
+      "name": "Neha Sharma",
+      "age": 24,
+      "skill": [
+        "PHP",
+        "Laravel",
+        "Vue.js",
+        "MySQL"
+      ],
+      "experience": 2,
+      "min_salary": 20000,
+      "max_salary": 30000,
+      "location": "Pune"
+    },
+    {
+      "id": "567890123456",
+      "name": "Arjun Reddy",
+      "age": 32,
+      "skill": [
+        "Android",
+        "Kotlin",
+        "Firebase",
+        "Git"
+      ],
+      "experience": 8,
+      "min_salary": 50000,
+      "max_salary": 70000,
+      "location": "Hyderabad"
+    },
+    {
+      "id": "678901234567",
+      "name": "Sneha Gupta",
+      "age": 27,
+      "skill": [
+        "iOS",
+        "Swift",
+        "React Native",
+        "Firebase"
+      ],
+      "experience": 4,
+      "min_salary": 30000,
+      "max_salary": 45000,
+      "location": "Chennai"
+    },
+    {
+      "id": "789012345678",
+      "name": "Vikram Malhotra",
+      "age": 29,
+      "skill": [
+        "Ruby",
+        "Rails",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "experience": 6,
+      "min_salary": 40000,
+      "max_salary": 55000,
+      "location": "Kolkata"
+    },
+    {
+      "id": "890123456789",
+      "name": "Ananya Das",
+      "age": 26,
+      "skill": [
+        "DevOps",
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ],
+      "experience": 4,
+      "min_salary": 35000,
+      "max_salary": 50000,
+      "location": "Mumbai"
+    },
+    {
+      "id": "901234567890",
+      "name": "Karthik Rajan",
+      "age": 31,
+      "skill": [
+        "Data Science",
+        "Python",
+        "R",
+        "TensorFlow"
+      ],
+      "experience": 7,
+      "min_salary": 45000,
+      "max_salary": 65000,
+      "location": "Bangalore"
+    },
+    {
+      "id": "012345678901",
+      "name": "Zara Sheikh",
+      "age": 28,
+      "skill": [
+        "UI/UX",
+        "Figma",
+        "Adobe XD",
+        "HTML/CSS"
+      ],
+      "experience": 5,
+      "min_salary": 30000,
+      "max_salary": 45000,
+      "location": "Delhi"
+    },
+    {
+      "id": "123789456012",
+      "name": "Rajesh Verma",
+      "age": 33,
+      "skill": [
+        "C++",
+        "Python",
+        "OpenCV",
+        "TensorFlow"
+      ],
+      "experience": 9,
+      "min_salary": 55000,
+      "max_salary": 75000,
+      "location": "Pune"
+    },
+    {
+      "id": "234890567123",
+      "name": "Meera Iyer",
+      "age": 25,
+      "skill": [
+        "Flutter",
+        "Dart",
+        "Firebase",
+        "Git"
+      ],
+      "experience": 3,
+      "min_salary": 25000,
+      "max_salary": 35000,
+      "location": "Chennai"
+    },
+    {
+      "id": "345901678234",
+      "name": "Aditya Shah",
+      "age": 30,
+      "skill": [
+        "Blockchain",
+        "Solidity",
+        "JavaScript",
+        "Web3"
+      ],
+      "experience": 6,
+      "min_salary": 45000,
+      "max_salary": 65000,
+      "location": "Mumbai"
+    },
+    {
+      "id": "456012789345",
+      "name": "Divya Kapoor",
+      "age": 27,
+      "skill": [
+        "MERN Stack",
+        "TypeScript",
+        "AWS",
+        "Redux"
+      ],
+      "experience": 4,
+      "min_salary": 35000,
+      "max_salary": 50000,
+      "location": "Bangalore"
+    },
+    {
+      "id": "567123890456",
+      "name": "Sanjay Mehta",
+      "age": 34,
+      "skill": [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "Kafka"
+      ],
+      "experience": 10,
+      "min_salary": 60000,
+      "max_salary": 85000,
+      "location": "Hyderabad"
+    },
+    {
+      "id": "678234901567",
+      "name": "Riya Chatterjee",
+      "age": 26,
+      "skill": [
+        "QA",
+        "Selenium",
+        "Cypress",
+        "TestNG"
+      ],
+      "experience": 3,
+      "min_salary": 25000,
+      "max_salary": 35000,
+      "location": "Kolkata"
+    },
+    {
+      "id": "789345012678",
+      "name": "Kabir Khan",
+      "age": 29,
+      "skill": [
+        "Unity3D",
+        "C#",
+        "Game Development",
+        "AR/VR"
+      ],
+      "experience": 5,
+      "min_salary": 40000,
+      "max_salary": 55000,
+      "location": "Delhi"
+    },
+    {
+      "id": "890456123789",
+      "name": "Lakshmi Menon",
+      "age": 28,
+      "skill": [
+        "Data Engineering",
+        "Python",
+        "Spark",
+        "Hadoop"
+      ],
+      "experience": 5,
+      "min_salary": 40000,
+      "max_salary": 60000,
+      "location": "Chennai"
+    },
+    {
+      "id": "901567234890",
+      "name": "Aryan Desai",
+      "age": 31,
+      "skill": [
+        "Cloud Architecture",
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "experience": 8,
+      "min_salary": 55000,
+      "max_salary": 80000,
+      "location": "Pune"
+    },
+    {
+      "id": "012678345901",
+      "name": "Nisha Rawat",
+      "age": 27,
+      "skill": [
+        "Full Stack",
+        "Angular",
+        "Node.js",
+        "MongoDB"
+      ],
+      "experience": 4,
+      "min_salary": 35000,
+      "max_salary": 50000,
+      "location": "Mumbai"
+    }
+  ]
+}

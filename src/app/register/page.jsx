@@ -1,9 +1,12 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import api from '../../api/post'
+import { useRouter } from 'next/navigation'  // Changed this line
 
 export default function RegisterForm() {
     const [userType, setUserType] = useState('labour')
+    const router = useRouter()  // Changed variable name for consistency
     const [formData, setFormData] = useState({
         aadhar: '',
         mobile: '',
@@ -12,7 +15,9 @@ export default function RegisterForm() {
         aadhar: '',
         mobile: '',
     })
-
+    function add() {
+       
+    }
     const validateForm = () => {
         let isValid = true
         const newErrors = { aadhar: '', mobile: '' }
@@ -30,13 +35,47 @@ export default function RegisterForm() {
         return isValid
     }
 
-    const handleSubmit = (e) => {
+    const validateAadhar = async (aadharNumber) => {
+        try {
+            const response = await api.get('/aadhar')
+            const aadharData = response.data
+            console.log('Aadhar data:', aadharData)
+            console.log('Aadhar number:', aadharNumber)
+            return aadharData.some(entry => entry.aadhar === aadharNumber)
+        } catch (error) {
+            console.error('Error checking Aadhar:', error)
+            return false
+        }
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (validateForm()) {
-            console.log('Form submitted:', {
-                ...formData,
-                userType,
-            })
+            try {
+                const isValidAadhar = await validateAadhar(formData.aadhar)
+                if (!isValidAadhar) {
+                    setErrors(prev => ({
+                        ...prev,
+                        aadhar: 'Invalid Aadhar number. Please check and try again.'
+                    }))
+                    return
+                }
+                
+                console.log('Form submitted:', {
+                    ...formData,
+                    userType,
+                })
+                if(userType === 'labour'){
+                    router.push(`/register/labour?aadhar=${formData.aadhar}`)
+                }
+                
+            } catch (error) {
+                console.error('Registration error:', error)
+                setErrors(prev => ({
+                    ...prev,
+                    aadhar: 'Error verifying Aadhar. Please try again later.'
+                }))
+            }
         }
     }
 
