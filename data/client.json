@@ -1,0 +1,54 @@
+{
+  "cline": [
+    {
+      "id": "123456789012",
+      "name": "Rajesh Kumar",
+      "email": "rajesh.kumar@gmail.com"
+    },
+    {
+      "id": "234567890123",
+      "name": "Priya Singh",
+      "email": "priya.singh@gmail.com"
+    },
+    {
+      "id": "345678901234",
+      "name": "Amit Patel",
+      "email": "amit.patel@gmail.com"
+    },
+    {
+      "id": "456789012345",
+      "name": "Sneha Sharma",
+      "email": "sneha.sharma@gmail.com"
+    },
+    {
+      "id": "567890123456",
+      "name": "Vikram Malhotra",
+      "email": "vikram.malhotra@gmail.com"
+    },
+    {
+      "id": "678901234567",
+      "name": "Anita Desai",
+      "email": "anita.desai@gmail.com"
+    },
+    {
+      "id": "789012345678",
+      "name": "Karthik Reddy",
+      "email": "karthik.reddy@gmail.com"
+    },
+    {
+      "id": "890123456789",
+      "name": "Meera Iyer",
+      "email": "meera.iyer@gmail.com"
+    },
+    {
+      "id": "901234567890",
+      "name": "Arjun Nair",
+      "email": "arjun.nair@gmail.com"
+    },
+    {
+      "id": "012345678901",
+      "name": "Divya Kapoor",
+      "email": "divya.kapoor@gmail.com"
+    }
+  ]
+}

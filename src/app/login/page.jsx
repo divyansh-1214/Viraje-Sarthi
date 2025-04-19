@@ -1,18 +1,21 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import labourApi from '../../api/postLabour'
+import clientApi from '../../api/postClient'
+import { useRouter } from 'next/navigation'
 
 export default function LoginForm() {
-  // Add this new state
-  const [userType, setUserType] = useState('labour') // default value is 'labour'
-  
+  const router = useRouter()
+  const [userType, setUserType] = useState('labour')
   const [formData, setFormData] = useState({
     aadhar: '',
     mobile: ''
   })
   const [errors, setErrors] = useState({
     aadhar: '',
-    mobile: ''
+    mobile: '',
+    auth: ''
   })
 
   const validateForm = () => {
@@ -35,11 +38,47 @@ export default function LoginForm() {
     return isValid
   }
 
-  const handleSubmit = (e) => {
+  const checkUserExists = async () => {
+    try {
+      const api = userType === 'labour' ? labourApi : clientApi
+      const endpoint = userType === 'labour' ? '/labour' : '/cline'
+      
+      const response = await api.get(endpoint)
+      const users = response.data
+      
+      const userExists = users.some(user => 
+        user.id === formData.aadhar
+      )
+
+      return userExists
+    } catch (error) {
+      console.error('Authentication error:', error)
+      return false
+    }
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (validateForm()) {
-      // Handle form submission here
-      console.log('Form submitted:', formData)
+      try {
+        const userExists = await checkUserExists()
+        
+        if (userExists) {
+          // Redirect to appropriate dashboard
+          router.push(`/dashboard/${userType}?aadhar=${formData.aadhar}`)
+        } else {
+          setErrors(prev => ({
+            ...prev,
+            auth: 'Invalid credentials. Please check your Aadhar number or register.'
+          }))
+        }
+      } catch (error) {
+        console.error('Login error:', error)
+        setErrors(prev => ({
+          ...prev,
+          auth: 'Login failed. Please try again later.'
+        }))
+      }
     }
   }
 
@@ -126,6 +165,9 @@ export default function LoginForm() {
           </button>
         </form>
       </div>
+      {errors.auth && (
+        <p className="text-red-500 text-sm text-center mb-4">{errors.auth}</p>
+      )}
     </div>
   )
 }

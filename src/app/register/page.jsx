@@ -15,9 +15,6 @@ export default function RegisterForm() {
         aadhar: '',
         mobile: '',
     })
-    function add() {
-       
-    }
     const validateForm = () => {
         let isValid = true
         const newErrors = { aadhar: '', mobile: '' }
@@ -65,9 +62,7 @@ export default function RegisterForm() {
                     ...formData,
                     userType,
                 })
-                if(userType === 'labour'){
-                    router.push(`/register/labour?aadhar=${formData.aadhar}`)
-                }
+                router.push(`/register/${userType}?aadhar=${formData.aadhar}`)
                 
             } catch (error) {
                 console.error('Registration error:', error)
