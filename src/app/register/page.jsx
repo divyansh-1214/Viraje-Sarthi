@@ -1,12 +1,13 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import api from '../../api/post'
-import { useRouter } from 'next/navigation'  // Changed this line
+import { useRouter } from 'next/navigation'
 
 export default function RegisterForm() {
+    const router = useRouter()
     const [userType, setUserType] = useState('labour')
-    const router = useRouter()  // Changed variable name for consistency
     const [formData, setFormData] = useState({
         aadhar: '',
         mobile: '',
@@ -15,6 +16,20 @@ export default function RegisterForm() {
         aadhar: '',
         mobile: '',
     })
+
+    const handleUserTypeChange = (type) => {
+        setUserType(type)
+        // Clear form data and errors when user type changes
+        setFormData({
+            aadhar: '',
+            mobile: ''
+        })
+        setErrors({
+            aadhar: '',
+            mobile: ''
+        })
+    }
+
     const validateForm = () => {
         let isValid = true
         const newErrors = { aadhar: '', mobile: '' }
@@ -85,79 +100,102 @@ export default function RegisterForm() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-md w-96">
+        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--primary-yellow-50)' }}>
+            <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white p-8 rounded-lg shadow-xl w-96"
+            >
                 <nav className="flex justify-center space-x-4 mb-6">
-                    <button
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         type="button"
-                        onClick={() => setUserType('labour')}
-                        className={`px-4 py-2 rounded-lg ${userType === 'labour'
-                            ? 'bg-blue-500 text-white'
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                            }`}
+                        onClick={() => handleUserTypeChange('labour')}
+                        className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
+                            userType === 'labour'
+                                ? 'bg-yellow-400 text-black'
+                                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                        }`}
+                        style={userType === 'labour' ? { backgroundColor: 'var(--primary-yellow-400)' } : {}}
                     >
                         Register as Labour
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         type="button"
-                        onClick={() => setUserType('client')}
-                        className={`px-4 py-2 rounded-lg ${userType === 'client'
-                            ? 'bg-blue-500 text-white'
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                            }`}
+                        onClick={() => handleUserTypeChange('client')}
+                        className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
+                            userType === 'client'
+                                ? 'bg-yellow-400 text-black'
+                                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                        }`}
+                        style={userType === 'client' ? { backgroundColor: 'var(--primary-yellow-400)' } : {}}
                     >
                         Register as Client
-                    </button>
+                    </motion.button>
                 </nav>
-                <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-black)' }}>Register</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                        <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
                             Aadhar Number
                         </label>
-                        <input
+                        <motion.input
+                            whileFocus={{ scale: 1.02 }}
                             type="text"
                             name="aadhar"
                             value={formData.aadhar}
                             onChange={handleChange}
                             maxLength={12}
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                            style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
                             placeholder="Enter 12 digit Aadhar number"
                         />
                         {errors.aadhar && <p className="text-red-500 text-xs mt-1">{errors.aadhar}</p>}
                     </div>
 
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                    <div className="mb-6">
+                        <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
                             Mobile Number
                         </label>
-                        <input
+                        <motion.input
+                            whileFocus={{ scale: 1.02 }}
                             type="text"
                             name="mobile"
                             value={formData.mobile}
                             onChange={handleChange}
                             maxLength={10}
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                            style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
                             placeholder="Enter 10 digit mobile number"
                         />
                         {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>}
                     </div>
 
-                    <div className='m-3'>
+                    <div className='m-3 text-center' style={{ color: 'var(--text-gray-600)' }}>
                         Already have an account?{' '}
-                        <Link href="/login" className="text-blue-500 hover:underline">
+                        <Link href="/login" style={{ color: 'var(--primary-yellow-400)' }} className="hover:underline font-semibold">
                             Login
                         </Link>
                     </div>
 
-                    <button
+                    <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                         type="submit"
-                        className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
+                        className="w-full py-2 px-4 rounded-lg text-black font-semibold transition-colors duration-300"
+                        style={{ 
+                            backgroundColor: 'var(--primary-yellow-400)',
+                            hover: { backgroundColor: 'var(--primary-yellow-500)' }
+                        }}
                     >
                         Register
-                    </button>
+                    </motion.button>
                 </form>
-            </div>
+            </motion.div>
         </div>
     )
 }

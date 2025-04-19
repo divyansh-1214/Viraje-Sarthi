@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+:root {
+  /* Primary Colors */
+  --primary-yellow-400: #facc15;
+  --primary-yellow-500: #eab308;
+  --primary-yellow-50: #fefce8;
+  
+  /* Text Colors */
+  --text-black: #000000;
+  --text-gray-600: #4B5563;
+  --text-gray-700: #374151;
+  
+  /* Background Colors */
+  --bg-white: #ffffff;
+  --bg-black: #000000;
+  --bg-gray-900: #111827;
+  --bg-gray-100: #F3F4F6;
+  
+  /* Border Colors */
+  --border-yellow-200: #fef08a;
+  --border-gray-200: #E5E7EB;
+}
+
+/* You can use these variables like: var(--primary-yellow-400) */

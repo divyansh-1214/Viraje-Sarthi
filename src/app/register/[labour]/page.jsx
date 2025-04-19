@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { motion } from 'framer-motion'
 import api from '../../../api/postLabour'
 
 export default function LabourRegistration() {
@@ -18,6 +19,7 @@ export default function LabourRegistration() {
     location: ''
   })
 
+  const [gender, setGender] = useState('male') // Added gender state but not included in formData
   const [newSkill, setNewSkill] = useState('')
 
   const handleChange = (e) => {
@@ -57,57 +59,125 @@ export default function LabourRegistration() {
   }
 
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
-      <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow">
-        <h2 className="text-2xl font-bold mb-6">Labour Registration</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
+    <div className="min-h-screen flex items-center justify-center py-12" style={{ backgroundColor: 'var(--primary-yellow-50)' }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white p-8 rounded-lg shadow-xl w-full max-w-2xl mx-4"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-black)' }}>Labour Registration</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+                Name
+              </label>
+              <motion.input
+                whileFocus={{ scale: 1.02 }}
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+                Gender
+              </label>
+              <div className="flex gap-4">
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    value="male"
+                    checked={gender === 'male'}
+                    onChange={(e) => setGender(e.target.value)}
+                    className="mr-2"
+                  />
+                  Male
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    value="female"
+                    checked={gender === 'female'}
+                    onChange={(e) => setGender(e.target.value)}
+                    className="mr-2"
+                  />
+                  Female
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+                Age
+              </label>
+              <motion.input
+                whileFocus={{ scale: 1.02 }}
+                type="number"
+                name="age"
+                value={formData.age}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+                Experience (years)
+              </label>
+              <motion.input
+                whileFocus={{ scale: 1.02 }}
+                type="number"
+                name="experience"
+                value={formData.experience}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
+                required
+              />
+            </div>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2">Age</label>
-            <input
-              type="number"
-              name="age"
-              value={formData.age}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2">Skills</label>
+          <div>
+            <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+              Skills
+            </label>
             <div className="flex gap-2 mb-2">
-              <input
+              <motion.input
+                whileFocus={{ scale: 1.02 }}
                 type="text"
                 value={newSkill}
                 onChange={(e) => setNewSkill(e.target.value)}
-                className="flex-1 px-3 py-2 border rounded"
+                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
                 placeholder="Add a skill"
               />
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 type="button"
                 onClick={handleSkillAdd}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 py-2 rounded-lg text-black font-semibold"
+                style={{ backgroundColor: 'var(--primary-yellow-400)' }}
               >
                 Add
-              </button>
+              </motion.button>
             </div>
             <div className="flex flex-wrap gap-2">
               {formData.skill.map((skill, index) => (
-                <span
+                <motion.span
                   key={index}
-                  className="bg-gray-200 px-3 py-1 rounded-full flex items-center gap-2"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-gray-100 px-3 py-1 rounded-full flex items-center gap-2"
                 >
                   {skill}
                   <button
@@ -117,67 +187,75 @@ export default function LabourRegistration() {
                   >
                     ×
                   </button>
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2">Experience (years)</label>
-            <input
-              type="number"
-              name="experience"
-              value={formData.experience}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+                Minimum Salary
+              </label>
+              <motion.input
+                whileFocus={{ scale: 1.02 }}
+                type="number"
+                name="min_salary"
+                value={formData.min_salary}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+                Maximum Salary
+              </label>
+              <motion.input
+                whileFocus={{ scale: 1.02 }}
+                type="number"
+                name="max_salary"
+                value={formData.max_salary}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
+                required
+              />
+            </div>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2">Minimum Salary</label>
-            <input
-              type="number"
-              name="min_salary"
-              value={formData.min_salary}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2">Maximum Salary</label>
-            <input
-              type="number"
-              name="max_salary"
-              value={formData.max_salary}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2">Location</label>
-            <input
+          <div>
+            <label className="block text-sm font-bold mb-2" style={{ color: 'var(--text-gray-700)' }}>
+              Location
+            </label>
+            <motion.input
+              whileFocus={{ scale: 1.02 }}
               type="text"
               name="location"
               value={formData.location}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2"
+              style={{ borderColor: 'var(--border-yellow-200)', '--tw-ring-color': 'var(--primary-yellow-400)' }}
               required
             />
           </div>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="w-full py-2 px-4 rounded-lg text-black font-semibold transition-colors duration-300 mt-6"
+            style={{ 
+              backgroundColor: 'var(--primary-yellow-400)',
+              hover: { backgroundColor: 'var(--primary-yellow-500)' }
+            }}
           >
-            Register
-          </button>
+            Complete Registration
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </div>
   )
 }
